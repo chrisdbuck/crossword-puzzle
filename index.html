@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Crossword Puzzle</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin: 20px;
+        }
+        td {
+            border: 1px solid black;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+        input {
+            width: 100%;
+            height: 100%;
+            font-size: 20px;
+            text-align: center;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactive Crossword Puzzle</h1>
+    <table>
+        <!-- Example of a 5x5 grid -->
+        <tr>
+            <td><input type="text" maxlength="1" id="cell-1-1"></td>
+            <td><input type="text" maxlength="1" id="cell-1-2"></td>
+            <td><input type="text" maxlength="1" id="cell-1-3"></td>
+            <td></td>
+            <td><input type="text" maxlength="1" id="cell-1-5"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="text" maxlength="1" id="cell-2-2"></td>
+            <td></td>
+            <td><input type="text" maxlength="1" id="cell-2-4"></td>
+            <td></td>
+        </tr>
+        <!-- Continue the grid as necessary -->
+    </table>
+    
+    <!-- Add Clues -->
+    <div>
+        <h3>Across</h3>
+        <ul>
+            <li>1. Not allowed by the law.</li>
+            <!-- Add more across clues -->
+        </ul>
+        <h3>Down</h3>
+        <ul>
+            <li>1. So messy that you can't read it.</li>
+            <!-- Add more down clues -->
+        </ul>
+    </div>
+  <script>
+    const answers = {
+        '1-1': 'I', '1-2': 'L', '1-3': 'L', '1-5': 'G', 
+        // Continue mapping cell IDs to correct letters
+    };
+
+    const checkAnswers = () => {
+        for (let cell in answers) {
+            const input = document.getElementById(`cell-${cell}`);
+            if (input.value.toUpperCase() === answers[cell]) {
+                input.style.backgroundColor = 'lightgreen';
+            } else {
+                input.style.backgroundColor = 'lightcoral';
+            }
+        }
+    };
+</script>
+</body>
+</html>
